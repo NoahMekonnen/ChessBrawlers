@@ -1,0 +1,155 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+img{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+}
+
+/**************************************Nav*/
+
+nav{
+    background-color: #C0C0C0;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+}
+
+@media(max-height:700px){
+    nav{
+        height: 20vh;
+    }
+}
+
+#Home-Link-Container{
+    display: flex;
+    /* height: 100%; */
+}
+
+#Home-Link-Container:hover{
+    background-color: #D3D3D3;
+}
+
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    /* height: 100%; */
+}
+
+nav li{
+    list-style: none;
+    /* height: 100%; */
+    display: flex;
+}
+
+nav a{
+    display: block;
+    padding: 1.5rem;
+    text-decoration: none;
+    font-size: 1em;
+    color: white;
+}
+
+nav a:hover{
+    background-color: #D3D3D3;
+}
+
+/**************************************Login/Register*/
+
+.User-Form-Container{
+    width: 400px;
+    height: 250px;
+    border-radius: 6px;
+    background-color: #2ecc71;
+    margin: 0 auto;
+    position: relative;
+    top: 120px;
+    padding: 15px;
+}
+
+.Login-Form{
+    width: 80%;
+}
+
+.Login-Form-Button{
+    position: relative;
+    top: 20px;
+    width: 100%;
+}
+
+
+.Register-Form{
+    width: 80%;
+}
+
+/**************************************Home*/
+
+#Home-Welcome{
+    color: #2ecc71;
+    font-size: 3em;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    margin: 0 auto;
+}
+
+#Home-Button{
+    background-color: #3498db;
+    border-radius: 8px;
+    border: 0px;
+}
+
+#Home-Button:hover{
+    
+}
+
+/**************************************Game*/
+
+#board{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    top: 130px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.square{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.piece{
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    position: relative;
+    z-index: 3;
+}
+
+.square svg{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 5;
+}
+
+path{
+    position: relative;
+    z-index: -1;
+}
+
+.selectedPiece{
+    position: fixed;
+    z-index: 3;
+}
