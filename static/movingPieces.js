@@ -23,9 +23,11 @@ function movePieces() {
         }
 
         function drop(e) {
-            
+
             // make sure piece drops in a square
-            if (e.target.classList.contains('square')) {
+            console.log("indrop", e.target.classList.contains('square'), e.currentTarget)
+            if (e.currentTarget.classList.contains('square')) {
+                console.log("hi")
                 // BLACK PIECES
                 const isBlack = selectedPiece.classList.contains('black');
                 const isWhite = selectedPiece.classList.contains('white');
@@ -37,20 +39,121 @@ function movePieces() {
                 const isKing = selectedPiece.classList.contains('king');
 
                 // BLACK PIECES
-                if(isBlack){
-                    // PAWN MOVE
-                    if(isPawn && isValidBlackPawnMove(initialSquare, e.target)) e.target.prepend(selectedPiece);
+                if (isBlack) {
+                    // No capture/ Capture
+                    if (!e.target.firstChild) {
+                        // PAWN MOVE
+                        if (isPawn && isValidBlackPawnMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
 
-                    // ROOK MOVE
-                    if(isRook && isValidBlackRookMove(initialSquare, e.target)) e.target.prepend(selectedPiece);
+                        // ROOK MOVE
+                        if (isRook && isValidRookMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
 
-                    // KNIGHT MOVE
-                    if(isKnight && isValidBlackKnightMove(initialSquare, e.target)) e.target.prepend(selectedPiece);
+                        // KNIGHT MOVE
+                        if (isKnight && isValidKnightMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
+
+                        // BISHOP MOVE
+                        if (isBishop && isValidBishopMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
+
+                        // QUEEN MOVE
+                        if (isQueen && isValidQueenMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
+
+                        // KING MOVE
+                        if (isKing && isValidKingMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
+                    } else {
+                        // PAWN MOVE
+                        if (isPawn && isValidBlackPawnMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+
+                        // ROOK MOVE
+                        if (isRook && isValidRookMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+
+                        // KNIGHT MOVE
+                        if (isKnight && isValidKnightMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+
+                        // BISHOP MOVE
+                        if (isBishop && isValidBishopMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+
+                        // QUEEN MOVE
+                        if (isQueen && isValidQueenMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+
+                        // KING MOVE
+                        if (isKing && isValidKingMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+                    }
+                } else {
+                    if (!e.currentTarget.firstChild) {
+                        // PAWN MOVE
+                        if (isPawn && isValidWhitePawnMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
+
+                        // ROOK MOVE
+                        if (isRook && isValidRookMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
+
+                        // KNIGHT MOVE
+                        if (isKnight && isValidKnightMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
+
+                        // BISHOP MOVE
+                        if (isBishop && isValidBishopMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
+
+                        // QUEEN MOVE
+                        if (isQueen && isValidQueenMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
+
+                        // KING MOVE
+                        if (isKing && isValidKingMove(initialSquare, e.currentTarget)) e.currentTarget.prepend(selectedPiece);
+                    } else {
+                        // PAWN MOVE
+                        console.log("white child")
+                        if (isPawn && isValidWhitePawnMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+
+                        // ROOK MOVE
+                        if (isRook && isValidRookMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+
+                        // KNIGHT MOVE
+                        if (isKnight && isValidKnightMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+
+                        // BISHOP MOVE
+                        if (isBishop && isValidBishopMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+
+                        // QUEEN MOVE
+                        if (isQueen && isValidQueenMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+
+                        // KING MOVE
+                        if (isKing && isValidKingMove(initialSquare, e.currentTarget)) {
+                            e.currentTarget.firstChild.remove();
+                            e.currentTarget.prepend(selectedPiece);
+                        }
+                    }
                 }
-
-                // WHITE PAWN MOVE
-                const isWhitePawn = selectedPiece.classList.contains('white') && selectedPiece.classList.contains('pawn')
-                if(isWhitePawn && isValidWhitePawnMove(initialSquare, e.target)) e.target.prepend(selectedPiece);
             }
         }
     }
